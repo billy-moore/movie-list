@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux'
-
+import { useNavigate } from 'react-router-dom'
 import { Paper, Grid, Typography, TextField, Button } from '@material-ui/core';
 
-import { getMovieDrinks } from '../../../actions/cocktails'
+import { getMovieDrinks, fetchDrinkDetails } from '../../../actions/cocktails'
 
 import DrinkCard from '../../DrinkList/DrinkCard/DrinkCard'
 const DrinkTab = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const state = useSelector((state) => state)
     const  { movies, drinks } = useSelector((state) => state)
-    const barList  = useState( movies.drinks )
+    //const barList  = useState(  )
     const movieId = movies.currentMovie.id
     const movieDrinks = movies.drinks
-    const extraDrinks = drinks.list
-    
+    const [fullBar, setFullBar] = useState( movieDrinks )
+
     useEffect(() => {
-        
-        if (movieDrinks.length < 5){
-            dispatch( getMovieDrinks( movieId, extraDrinks ) )
+
+        if (fullBar.length < 5){
+            dispatch( getMovieDrinks( movieId, drinks.list ) )
+                fullBar.push(...drinks.list)
         }
-        movieDrinks.push( ...extraDrinks )
-    
-    }, [dispatch, movieDrinks, barList, extraDrinks, movieId])
+
+    }, [])
+
 
     const clickDrink = ( e, drink ) => {
         e.preventDefault()
-        
+        navigate(`/drink/${ drink.idDrink }`)
+        dispatch( fetchDrinkDetails( drink.idDrink ))
     }
 
     return ( 
@@ -42,7 +45,7 @@ const DrinkTab = () => {
             >
                 <Typography variant='h6' style={{ paddingTop: '1rem', textAlign: 'center'}}>Suggested Drinks</Typography>
                 <Grid container spacing={2} style={{padding: '1rem'}} justifyContent='center' alignContent='center'>
-                        {movieDrinks && movieDrinks.map((drink, index) => (
+                        {fullBar.length > 0 && fullBar.map((drink, index) => (
                             <DrinkCard 
                                 name={ drink.strDrink }
                                 thumbnail={ drink.strDrinkThumb }
