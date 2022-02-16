@@ -58,7 +58,7 @@ export const fetchDrinkDetails = ( id ) => async ( dispatch ) => {
         const { data } = await api.fetchDrink( id )
 
         dispatch( { type: START_LOADING} )
-        console.log( data )
+        //console.log( data )
         dispatch( { type: FETCH_SINGLE, payload: data } )
         
         dispatch( { type: END_LOADING } )
