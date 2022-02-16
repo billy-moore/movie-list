@@ -18,13 +18,12 @@ const DrinkTab = () => {
     const [fullBar, setFullBar] = useState( movieDrinks )
 
     useEffect(() => {
-
-        if (fullBar.length < 5){
+        if ( fullBar.length < 5 ){
             dispatch( getMovieDrinks( movieId, drinks.list ) )
                 fullBar.push(...drinks.list)
         }
 
-    }, [])
+    }, [ movieId, fullBar, drinks.list, dispatch ])
 
 
     const clickDrink = ( e, drink ) => {
@@ -45,7 +44,7 @@ const DrinkTab = () => {
             >
                 <Typography variant='h6' style={{ paddingTop: '1rem', textAlign: 'center'}}>Suggested Drinks</Typography>
                 <Grid container spacing={2} style={{padding: '1rem'}} justifyContent='center' alignContent='center'>
-                        {fullBar.length > 0 && fullBar.map((drink, index) => (
+                        {fullBar.length > 0 && fullBar.slice(0, 5).map((drink, index) => (
                             <DrinkCard 
                                 name={ drink.strDrink }
                                 thumbnail={ drink.strDrinkThumb }
