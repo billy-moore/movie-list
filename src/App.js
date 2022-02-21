@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Container } from '@material-ui/core'
 
@@ -14,17 +14,31 @@ import DrinkList from './components/DrinkList/DrinkList'
 
 import Search from './components/Search/Search'
 import DrinkDetails from './components/DrinkDetails/DrinkDetails';
+import SearchDrawer from './components/Navbar/SideNav/SearchDrawer/SearchDrawer';
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem( 'profile' ) )
     
     const canAuthorize = !user ? <Auth /> : <Navigate replace to='/movies' />
+
+    const [searchDrawer, setSearchDrawer] = useState(true)
+    const [ anchorEl, setAnchorEl ] = useState(null)
+    
+    const openSearch = ( event ) => {
+        setAnchorEl( event.currentTarget )
+        setSearchDrawer(prev=> !prev)
+    }
+
+    const handleClose=() => {
+        
+    }
     
     return (
         <Router>
             <Container maxWidth="xl" >
                 {/* <Navbar /> */}
-                <SideNav />
+                <SideNav search={() => setSearchDrawer(prev => !prev )}/>
+                <SearchDrawer search={ searchDrawer } close={ handleClose } show={ searchDrawer } anchorEl={ anchorEl } />
                 <Routes>
                     <Route path="/" exact element={ <Home />} />
                     <Route path='/movies' exact element={ <Home /> } />
