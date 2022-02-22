@@ -5,10 +5,9 @@ import { Navigate } from 'react-router-dom'
 export const signIn = (formData, history) => async (dispatch) => {
     try {
         // log in the user
-
         Navigate('/')
     } catch (error) {
-        
+        console.log( error.message)
     }
 }
 
@@ -18,6 +17,6 @@ export const signUp = (formData, history) => async (dispatch) => {
         
         Navigate('/')
     } catch (error) {
-        
+        console.log( error.message)
     }
 }

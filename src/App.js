@@ -18,16 +18,17 @@ import SearchDrawer from './components/Navbar/SideNav/SearchDrawer/SearchDrawer'
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem( 'profile' ) )
+    //const [currentId, setCurrentId] = useState(0)
     
     const canAuthorize = !user ? <Auth /> : <Navigate replace to='/movies' />
 
     const [searchDrawer, setSearchDrawer] = useState(true)
     const [ anchorEl, setAnchorEl ] = useState(null)
     
-    const openSearch = ( event ) => {
-        setAnchorEl( event.currentTarget )
-        setSearchDrawer(prev=> !prev)
-    }
+    // const openSearch = ( event ) => {
+    //     setAnchorEl( event.currentTarget )
+    //     setSearchDrawer(prev=> !prev)
+    // }
 
     const handleClose=() => {
         
