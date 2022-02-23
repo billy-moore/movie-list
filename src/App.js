@@ -30,6 +30,7 @@ const App = () => {
     //     setSearchDrawer(prev=> !prev)
     // }
 
+    console.log( user )
     const handleClose=() => {
         
     }

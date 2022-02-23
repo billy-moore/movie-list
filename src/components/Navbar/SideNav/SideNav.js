@@ -22,7 +22,7 @@ const SideNav = ( props ) => {
 
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [])
-    
+
     return (
         <Drawer
             variant='permanent'
@@ -44,9 +44,9 @@ const SideNav = ( props ) => {
                     <LocalBarIcon />
                 </IconButton>
             <Divider />
-                {user ? (
-                    <IconButton onClick={ (e) => goToHandler('users') }>
-                    <Avatar alt={ user.result.name } src={ user.result.imageUrl }>{user.result.name.charAt(0)}</Avatar>
+                {user?.result ? (
+                    <IconButton onClick={ (e) => goToHandler('users') } size='small'>
+                    <Avatar alt={user?.result.name} src={user?.result.imageUrl} sx={{ width: 24, height: 24 }}>{user?.result.name.charAt(0)}</Avatar>
                 </IconButton>
                 ) : 
                 (<IconButton onClick={ (e) => goToHandler('auth') }>
