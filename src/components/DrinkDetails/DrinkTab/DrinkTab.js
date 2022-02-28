@@ -33,7 +33,7 @@ const DrinkTab = () => {
     }
 
     return ( 
-        <Grid container item>
+        <Grid container item justifyContent='center'>
             <Paper
                 style={{
                     backgroundImage: `radial-gradient(rgba(194, 24, 91, 0.4), rgba(49, 27, 146, 0.2)),`,
@@ -42,8 +42,29 @@ const DrinkTab = () => {
                     backgroundSize: 'cover',
                 }}
             >
-                <Typography variant='h6' style={{ paddingTop: '1rem', textAlign: 'center'}}>Suggested Drinks</Typography>
-                <Grid container spacing={2} style={{padding: '1rem'}} justifyContent='center' alignContent='center'>
+                <Grid item container spacing={1} style={{ padding: '1rem'}}>
+                    <Grid item xs={2}>
+                        <Typography variant='h6' style={{ paddingTop: '1rem', textAlign: 'center'}}>Suggested Drinks</Typography>
+                    </Grid>
+                    
+                    <Grid item xs={8}>
+                        <TextField placeholder='Ask for a Drink' fullWidth variant='outlined'/>
+                    </Grid>
+
+                    <Grid item xs={2} container alignContent='center'>
+                        <Button variant='contained' color='primary' size='large' >
+                            Search
+                        </Button>
+                    </Grid>
+                </Grid>
+                
+
+                <Grid item container 
+                    spacing={2}
+                    style={{padding: '1rem', textAlign: 'center'}} 
+                    // justifyContent='center'
+                    // alignContent='center'
+                    >
                         {fullBar.length > 0 && fullBar.slice(0, 5).map((drink, index) => (
                             <DrinkCard 
                                 name={ drink.strDrink }
@@ -53,16 +74,6 @@ const DrinkTab = () => {
                                 clicked={ (e) => clickDrink( e, drink )}
                                 />
                         )) }
-                    <Grid item xs={8}>
-                        <TextField placeholder='Ask for a Drink' fullWidth variant='outlined'/>
-
-                    </Grid>
-                    <Grid item xs={2} container alignContent='center'>
-                        <Button variant='contained' color='primary' size='large' >
-                            Search
-                        </Button>
-                    </Grid>
-                    
                 </Grid>
             </Paper>
         </Grid>
