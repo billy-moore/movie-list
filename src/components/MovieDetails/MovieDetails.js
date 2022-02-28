@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, Fragment } from 'react';
-import { Grid, CircularProgress, Container } from '@material-ui/core'
+import { Grid, CircularProgress, Container, Button } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 //import moment from 'moment'
 
@@ -46,6 +46,7 @@ const MovieDetails = () => {
                                 tagline={ currentMovie.tagline }
                                 runtime={ currentMovie.runtime }
                                 />
+                                <Button fullWidth variant='contained' color='primary' style={{ margin: '.5rem 1rem 0 1rem'}}>Add to Watch List</Button>
                             <DrinkTab />
                         </Grid>
                         
