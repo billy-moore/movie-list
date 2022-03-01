@@ -24,6 +24,7 @@ export const signUp = (formData, history) => async (dispatch) => {
 }
 
 export const getUser = ( id ) => async ( dispatch ) => {
+    
     try {
         const { data } = await api.fetchUser( id )
 

@@ -48,7 +48,7 @@ const App = () => {
                     <Route path='/movie/:id' element={ <MovieDetails />} />
                     <Route path='/movie/:id/randomdrink' element={ <MovieDetails />} />
                     <Route path="/auth" exact element={ canAuthorize } />
-                    <Route path="/user/:id" exact element={ <UserDetails /> } />
+                    <Route path="/user/:id" element={ <UserDetails /> } />
                     <Route path='/drinks' exact element={ <DrinkList /> } />
                     <Route path='/drinks/letter=:letter' exact element={<DrinkList />} />
                     <Route path='drink/:id' element={ <DrinkDetails />} />
