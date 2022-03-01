@@ -14,8 +14,12 @@ const SideNav = ( props ) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
     const token = user?.token
 
-    const goToHandler = ( e ) => {
+    const goToHandler = ( e, name ) => {
         navigate(`/${e}`)
+    }
+
+    const goToUser = ( id ) => {
+        navigate(`/user/${ id }`)
     }
 
     useEffect(() => {
@@ -45,7 +49,7 @@ const SideNav = ( props ) => {
                 </IconButton>
             <Divider />
                 {user?.result ? (
-                    <IconButton onClick={ (e) => goToHandler('users') } size='small' >
+                    <IconButton onClick={ (e) => goToUser( `${user?.result.id || user?.result.googleId}`) } size='small' >
                     <Avatar alt={user?.result.name} src={user?.result.imageUrl} sx={{ width: 24, height: 24 }}>{user?.result.name.charAt(0)}</Avatar>
                 </IconButton>
                 ) : 

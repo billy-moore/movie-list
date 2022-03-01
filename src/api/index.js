@@ -44,3 +44,7 @@ export const fetchCocktailsBySearch = ( searchQuery ) => axios.get(`search/?sear
 export const fetchDrinksList = ( letter ) => axios.get(`/drinks/letter=${ letter }`)
 
 export const fetchDrinkDetails = ( id ) => axios.get(`/drink/${ id }`)
+
+//? USER
+
+export const fetchUser = ( id ) => axios.get(`/user/${id}`)
