@@ -23,7 +23,6 @@ const SideNav = ( props ) => {
     }
 
     useEffect(() => {
-
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [])
 
