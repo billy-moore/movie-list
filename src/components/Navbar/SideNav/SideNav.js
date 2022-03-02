@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import { Drawer, IconButton, Divider, Avatar, } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search';
@@ -11,10 +11,10 @@ import CopyrightIcon from '@material-ui/icons/Copyright';
 
 const SideNav = ( props ) => {
     const navigate = useNavigate()
+    const location = useLocation()
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-    const token = user?.token
 
-    const goToHandler = ( e, name ) => {
+    const goToHandler = ( e ) => {
         navigate(`/${e}`)
     }
 
@@ -23,8 +23,11 @@ const SideNav = ( props ) => {
     }
 
     useEffect(() => {
+        const token = user?.token
+
         setUser(JSON.parse(localStorage.getItem('profile')))
-    }, [])
+
+    }, [ location ])
 
     return (
         <Drawer

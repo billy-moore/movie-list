@@ -1,13 +1,33 @@
-import React, { Fragment, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Paper, Container, Grid, Typography } from '@material-ui/core'
+import { Container, Grid, Button } from '@material-ui/core'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+
+import { LOGOUT } from '../../constants/actionTypes'
 
 import UserHeader from './UserHeader/UserHeader' 
 import WatchList from './WatchList/WatchList'
 import DrinkList from './DrinkList/DrinkList'
 
 const UserDetails = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const location = useLocation()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+
+  const logoutHandler = () => {
+        dispatch({ type: LOGOUT })
+        navigate('/')
+        setUser(null)
+  }
+
+  useEffect(() => {
+    const token = user?.token
+
+    setUser(JSON.parse(localStorage.getItem('profile')))
+
+  }, [ location ])  
 
   //* User.result. name, email, familyName, givenName, imageUrl
 
@@ -21,7 +41,13 @@ const UserDetails = () => {
               avatar = { user.result.imageUrl }
             />
             <WatchList />
+            
             <DrinkList />
+            <Grid item >
+              <Button onClick={ logoutHandler } variant='contained' color='secondary' >
+                Logout
+              </Button>
+            </Grid>
             
               
           </Grid>

@@ -17,7 +17,7 @@ const UserHeader = ({ name, avatar }) => {
                     }}
                     >
                     <Grid container item justifyContent='center'>
-                        <Avatar style={{ width: 100, height: 100 }} alt={ `${name} image` } src={ avatar || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
+                        <Avatar style={{ width: 100, height: 100 }} alt={ `${name} image` } src={ avatar }>{name[0]}</Avatar>
                     </Grid>
                     
                     <Grid container item xs={ 12 } md={ 8 } justifyContent='center'>
