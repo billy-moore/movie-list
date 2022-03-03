@@ -21,15 +21,15 @@ const DrinkList = () => {
     const dispatch = useDispatch()
 
 
-    const classes = useStyles()
+    // const classes = useStyles()
 
-    const handleKeyPress = (e) => {
-        console.log('keypress')
-    }
+    // const handleKeyPress = (e) => {
+    //     console.log('keypress')
+    // }
 
-    const searchClick = () => {
-        console.log( list )
-    }
+    // const searchClick = () => {
+    //     console.log( list )
+    // }
 
     const changePages = ( letter, index ) => {
         setCurrentLetter(prev => prev = letter)
@@ -48,19 +48,19 @@ const DrinkList = () => {
                 <Grid container spacing={2} >
                 <Grid item xs={1} sm={6}></Grid>
                     <Grid item xs={12} sm={6} >
-                        <AppBar className={ classes.appBarSearch } position='static' color='inherit'>
+                        {/* <AppBar className={ classes.appBarSearch } position='static' color='inherit'>
                                 <TextField 
                                     name='search'
                                     variant='outlined'
                                     label='Search' 
                                     fullWidth
                                     onKeyPress={ handleKeyPress }
-                                    value='here we go'
+                                    
                                     //onChange={(e) => setSearch(e.target.value)}
                                     style={{ margin: '10px 0'}}
                                 />
                                 <Button onClick={ searchClick } className={ classes.searchButton } color='primary' variant='contained'>Search</Button>
-                        </AppBar>
+                        </AppBar> */}
                     </Grid>
                     <Grid item xs={12}>
                         <AlphaPaginate 

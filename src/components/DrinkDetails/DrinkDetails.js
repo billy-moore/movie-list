@@ -11,7 +11,7 @@ const DrinkDetails = () => {
     const dispatch = useDispatch()
     const { id } = useParams()
     const myCount = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-    const currentInstructions = []
+    const currentIngredients = []
     const ingredient = 'strIngredient'
     const measurement = 'strMeasure'
     
@@ -28,7 +28,7 @@ const DrinkDetails = () => {
 
     if( !currentDrink ) return null
 
-    currentDrink && myCount.map(item => currentInstructions.push({
+    currentDrink && myCount.map(item => currentIngredients.push({
         ingredient: currentDrink[ingredient+item.toString()], measurement: currentDrink[measurement + item.toString()]
     }))
 
@@ -39,7 +39,8 @@ const DrinkDetails = () => {
                 name={ currentDrink.strDrink }
                 thumbnail={ currentDrink.strDrinkThumb }
                 glass={ currentDrink.strGlass }
-                instructions={ currentInstructions }
+                ingredients={ currentIngredients }
+                instructions= { currentDrink.strInstructions }
             />
         </Container>
     )

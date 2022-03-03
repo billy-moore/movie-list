@@ -12,7 +12,7 @@ import { getMovie } from '../../actions/movies';
 //import useStyles from './styles'
 
 const MovieDetails = () => {
-    //const state = useSelector((state) => state)
+    const state = useSelector((state) => state)
     const { currentMovie, isLoading } = useSelector((state) => state.movies)
 
     const dispatch = useDispatch()
@@ -30,6 +30,7 @@ const MovieDetails = () => {
 
     if(!currentMovie) return null
 
+    console.log( state.drinks )
     return (
         <Fragment>
             <Grid container spacing={2} style={{ paddingTop: '2rem'}}>
