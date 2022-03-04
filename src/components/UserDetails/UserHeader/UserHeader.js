@@ -17,7 +17,7 @@ const UserHeader = ({ name, avatar }) => {
                     }}
                     >
                     <Grid container item justifyContent='center'>
-                        <Avatar style={{ width: 100, height: 100 }} alt={ `${name} image` } src={ avatar }>{name[0]}</Avatar>
+                        <Avatar style={{ width: 100, height: 100 }} alt='avatar' src={ avatar }>{name[0]}</Avatar>
                     </Grid>
                     
                     <Grid container item xs={ 12 } md={ 8 } justifyContent='center'>

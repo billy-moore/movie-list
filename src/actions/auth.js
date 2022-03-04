@@ -24,16 +24,29 @@ export const signUp = (formData, history) => async (dispatch) => {
 }
 
 export const getUser = ( id ) => async ( dispatch ) => {
+
+    const { data } = await api.fetchUser( id )
+    
+    console.log( data )
     
     try {
-        const { data } = await api.fetchUser( id )
 
         dispatch( { type: START_LOADING} )
-        console.log( data )
         dispatch( { type: FETCH_USER, payload: data } )
         
         dispatch( { type: END_LOADING } )
     } catch (error) {
-        console.log(error.message)
+        console.log( error.message )
+    }
+}
+
+
+export const addDrink = () => async ( dispatch ) => {
+    const { data } = await api.plusDrink( data )
+    //console.log( data )
+    try {
+
+    } catch (error) {
+        console.log( error.message )
     }
 }

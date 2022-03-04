@@ -48,3 +48,5 @@ export const fetchDrinkDetails = ( id ) => axios.get(`/drink/${ id }`)
 //? USER
 
 export const fetchUser = ( id ) => axios.get(`/user/${id}`)
+
+export const plusDrink = ( newDrink ) => axios.get( newDrink )

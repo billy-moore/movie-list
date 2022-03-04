@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Input from './Input'
 
 import useStyles from './styles'
+import { AUTH } from '../../constants/actionTypes'
 
 const initialState = {
     firstname: '',
@@ -55,7 +56,7 @@ const Auth = () => {
         const token = res?.tokenId
 
         try {
-            dispatch({ type: 'AUTH', data: { result, token } })
+            dispatch({ type: AUTH, data: { result, token } })
             navigate('/')
         } catch (error) {
             console.log(error)
