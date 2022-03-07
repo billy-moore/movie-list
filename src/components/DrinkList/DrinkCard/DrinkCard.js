@@ -1,13 +1,18 @@
 import React, { useState, Fragment } from 'react'
 
+import { useDispatch } from 'react-redux'
 import { Button, ButtonBase, Grid, Paper, Typography } from '@material-ui/core'
+import { addDrink } from '../../../actions/auth'
 
 const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
+  const dispatch = useDispatch()
   const user = useState(JSON.parse(localStorage.getItem('profile')))
-
+  const userID = user[0].result.googleId || user.id
+  
+  //! needlessly convoluted: Pass UserID and Drink ID. Update USER id with drink in "drink list" array
   const addDrinkHandler = () => {
-
-    console.log( name, id, type )
+    
+    dispatch( addDrink( userID, id ))
   }
   return (
     <Grid item >

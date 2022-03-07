@@ -40,11 +40,11 @@ export const getUser = ( id ) => async ( dispatch ) => {
     }
 }
 
-
-export const addDrink = () => async ( dispatch ) => {
-    const { data } = await api.plusDrink( data )
+//! bunk code, get it working
+export const addDrink = ( id ) => async ( dispatch ) => {
     try {
-        console.log( data )
+
+        console.log( id )
 
     } catch (error) {
         console.log( error.message )

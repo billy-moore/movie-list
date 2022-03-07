@@ -49,4 +49,6 @@ export const fetchDrinkDetails = ( id ) => axios.get(`/drink/${ id }`)
 
 export const fetchUser = ( id ) => axios.get(`/user/${id}`)
 
-export const plusDrink = ( newDrink ) => axios.get( newDrink )
+//! implement update route, this is incorrect and needs fixed.
+
+export const plusDrink = ( userId, drinkId ) => axios.post(`user/${ userId }/addDrink`, { drinkId } )
