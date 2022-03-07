@@ -72,6 +72,8 @@ const DrinkTab = () => {
                                 index={ index }
                                 key={index+drink.strDrink || index}
                                 clicked={ (e) => clickDrink( e, drink )}
+                                id={ drink.idDrink }
+                                type={ [ drink.strIngredient1, drink.strIngredient2, drink.strIngredient3 ] }
                                 />
                         )) }
                 </Grid>

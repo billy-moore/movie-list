@@ -43,8 +43,8 @@ export const getUser = ( id ) => async ( dispatch ) => {
 
 export const addDrink = () => async ( dispatch ) => {
     const { data } = await api.plusDrink( data )
-    //console.log( data )
     try {
+        console.log( data )
 
     } catch (error) {
         console.log( error.message )

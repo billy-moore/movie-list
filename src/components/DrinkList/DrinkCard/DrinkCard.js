@@ -5,6 +5,10 @@ import { Button, ButtonBase, Grid, Paper, Typography } from '@material-ui/core'
 const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
   const user = useState(JSON.parse(localStorage.getItem('profile')))
 
+  const addDrinkHandler = () => {
+
+    console.log( name, id, type )
+  }
   return (
     <Grid item >
           <Paper style={{ maxWidth: '200px'}}>
@@ -22,8 +26,8 @@ const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
                   <Button fullWidth variant='contained' color='secondary'>
                     Cheers!
                   </Button>
-                  <Button fullWidth variant='contained' color='primary'>
-                    Drink List
+                  <Button fullWidth variant='contained' color='primary' onClick={ addDrinkHandler }>
+                    Add Drink
                   </Button>
                 </Fragment>
               }
