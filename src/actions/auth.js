@@ -28,11 +28,9 @@ export const signUp = ( formData ) => async ( dispatch ) => {
     }
 }
 
-export const getUser = ( id ) => async ( dispatch ) => {
+export const getUser = ( userId, drinkId ) => async ( dispatch ) => {
 
-    const { data } = await api.fetchUser( id )
-    
-    console.log( data )
+    const { data } = await api.fetchUser( userId, drinkId )
     
     try {
 
@@ -46,9 +44,10 @@ export const getUser = ( id ) => async ( dispatch ) => {
 }
 
 //! bunk code, get it working
-export const createDrink = ( userId, drinkId ) => async ( dispatch ) => {
-    const { data } = await api.createDrink( userId, drinkId )
+export const addDrink = ( user, drinkId ) => async ( dispatch ) => {
+    const { data } = await api.addDrink( user, drinkId )
         console.log( data )
+    
     try {
         
 

@@ -52,15 +52,23 @@ const UserDetails = () => {
               name = { user.result.name || user.name }
               avatar = { user.result.imageUrl }
             />
-            <WatchList />
+            <WatchList 
+              list={ user.result.watchList }
+            />
             
-            <DrinkList />
+            <DrinkList 
+              list={ user.result.drinkList }
+            />
             <Grid item >
               <Button onClick={ logoutHandler } variant='contained' color='secondary' >
                 Logout
               </Button>
             </Grid>
-            
+            <Grid item >
+              <Button variant='contained' color='primary' >
+                Change Profile Image
+              </Button>
+            </Grid>
               
           </Grid>
         </Container>

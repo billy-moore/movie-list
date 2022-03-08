@@ -15,6 +15,7 @@ const authReducer = ( state = { authData: null }, action ) => {
             localStorage.setItem( 'profile', JSON.stringify( { ...action?.data } ) )
 
             return { ...state, authData: action?.data }
+
         default:
             return state
     }

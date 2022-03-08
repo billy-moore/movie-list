@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Container } from '@material-ui/core'
-
+import { useSelector } from 'react-redux'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './components/Home/Home'
@@ -18,9 +18,10 @@ import SearchDrawer from './components/Navbar/SideNav/SearchDrawer/SearchDrawer'
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem( 'profile' ) )
+    const state = useSelector((state) => state)
     //const [currentId, setCurrentId] = useState(0)
     
-    const canAuthorize = !user ? <Auth /> : <Navigate replace to='/movies' />
+    const canAuthorize = user ? <Auth /> : <Navigate replace to='/movies' />
 
     const [searchDrawer, setSearchDrawer] = useState(true)
     const [ anchorEl, setAnchorEl ] = useState(null)
@@ -30,10 +31,15 @@ const App = () => {
     //     setSearchDrawer(prev=> !prev)
     // }
 
+    useEffect(() => {
+        state.auth = user
+    }, [])
+
     
     const handleClose=() => {
         
     }
+
     
     return (
         <Router>
