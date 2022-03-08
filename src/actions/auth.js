@@ -1,23 +1,28 @@
 import * as api from '../api'
-import { FETCH_USER, START_LOADING, END_LOADING } from '../constants/actionTypes'
+
+import { FETCH_USER, START_LOADING, END_LOADING, AUTH } from '../constants/actionTypes'
 
 // import * as api from '../api'
-import { Navigate } from 'react-router-dom'
 
-export const signIn = (formData, history) => async (dispatch) => {
+export const signIn = ( formData ) => async (dispatch) => {
+    
     try {
-        // log in the user
-        Navigate('/')
+        const { data } = await api.signIn( formData )
+        dispatch( { type: AUTH, data })
+
     } catch (error) {
         console.log( error.message)
     }
 }
 
-export const signUp = (formData, history) => async (dispatch) => {
+export const signUp = ( formData ) => async ( dispatch ) => {
+    //console.log( formData )
+    const { data } = await api.signUp( formData )
+
     try {
-        // sign up the user
         
-        Navigate('/')
+        dispatch( { type: AUTH, data })
+
     } catch (error) {
         console.log( error.message)
     }
@@ -41,11 +46,13 @@ export const getUser = ( id ) => async ( dispatch ) => {
 }
 
 //! bunk code, get it working
-export const addDrink = ( id ) => async ( dispatch ) => {
+export const createDrink = ( userId, drinkId ) => async ( dispatch ) => {
+    const { data } = await api.createDrink( userId, drinkId )
+        console.log( data )
     try {
+        
 
-        console.log( id )
-
+        
     } catch (error) {
         console.log( error.message )
     }

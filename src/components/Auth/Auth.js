@@ -35,9 +35,11 @@ const Auth = () => {
         e.preventDefault()
         
         if( isSignup ){
-            dispatch(signUp( formData, navigate ))
+            dispatch( signUp( formData, navigate ) )
+            navigate('/')
         } else {
-            dispatch(signIn( formData, navigate ))
+            dispatch( signIn( formData, navigate ) )
+            navigate('/')
         }
 
     }

@@ -33,14 +33,12 @@ const UserDetails = () => {
   const logoutHandler = () => {
         dispatch({ type: LOGOUT })
         navigate('/')
-        setUser(null)
   }
 
   useEffect(() => {
     //const token = user?.token
-
     setUser(JSON.parse(localStorage.getItem('profile')))
-    //console.log( state )
+    //console.log( user )
   }, [ location ])  
 
   //* User.result. name, email, familyName, givenName, imageUrl
@@ -51,7 +49,7 @@ const UserDetails = () => {
           <Grid container spacing={2} style={{paddingLeft: '2rem', paddingTop: '2rem'}}>
             
             <UserHeader 
-              name = { user.result.name }
+              name = { user.result.name || user.name }
               avatar = { user.result.imageUrl }
             />
             <WatchList />

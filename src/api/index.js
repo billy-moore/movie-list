@@ -1,10 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'http:localhost:5000' })
-//const postUrl = 'http://localhost:5000/posts'
-//const movieUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=cb59aff70d4a64fc72648cdb2c85dbaa&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_watch_monetization_types=flatrate'
-//const movieUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=cb59aff70d4a64fc72648cdb2c85dbaa&language=en-US&'
-//const drinkUrl = ''
+const API = axios.create({ baseURL: 'http:localhost:3000' })
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
@@ -14,7 +10,7 @@ API.interceptors.request.use((req) => {
     return req
 })
 
-export const fetchPosts = () => axios.get()
+//export const fetchPosts = () => axios.get()
 
 //export const fetchMovies = () => axios.get('/movies')
 
@@ -47,8 +43,14 @@ export const fetchDrinkDetails = ( id ) => axios.get(`/drink/${ id }`)
 
 //? USER
 
+export const signIn = ( formData ) => axios.post('/user/signIn', formData )
+
+export const signUp = ( formData ) => axios.post('/user/signUp', formData )
+
 export const fetchUser = ( id ) => axios.get(`/user/${id}`)
 
 //! implement update route, this is incorrect and needs fixed.
 
-export const plusDrink = ( userId, drinkId ) => axios.post(`user/${ userId }/addDrink`, { drinkId } )
+//* Treat Drinks Like Posts
+export const createDrink = ( userId, newDrink ) => axios.post(`user/${ userId }/drinkList`, newDrink )
+export const deleteDrink = ( userId, drinkId ) => axios.delete(`user/${ userId }/drinkList`, drinkId )
