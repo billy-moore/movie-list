@@ -5,14 +5,14 @@ import { Button, ButtonBase, Grid, Paper, Typography } from '@material-ui/core'
 import { addDrink } from '../../../actions/auth'
 
 const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
-  const state = useSelector((state) => state)
+  //const state = useSelector((state) => state)
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-  //const userID = user[0].result.googleId || user.id
-
-  //! needlessly convoluted: Pass UserID and Drink ID. Update USER id with drink in "drink list" array
+  const userId = user.result._id || user.result.googleId
+  const dispatch = useDispatch() 
+  
   const addDrinkHandler = () => {
-    console.log( state )
     console.log( user )
+    dispatch( addDrink( userId, id ))
   }
 
   return (

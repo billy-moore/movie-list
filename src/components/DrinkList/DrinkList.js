@@ -20,7 +20,6 @@ const DrinkList = () => {
     const [currentLetter, setCurrentLetter] = useState('A')
     const dispatch = useDispatch()
 
-
     // const classes = useStyles()
 
     // const handleKeyPress = (e) => {

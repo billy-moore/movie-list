@@ -44,13 +44,15 @@ export const getUser = ( userId, drinkId ) => async ( dispatch ) => {
 }
 
 //! bunk code, get it working
-export const addDrink = ( user, drinkId ) => async ( dispatch ) => {
-    const { data } = await api.addDrink( user, drinkId )
-        console.log( data )
+
+export const addDrink = ( drinkId ) => async ( dispatch ) => {
+
+    const { data } = await api.addDrink( drinkId )
+    
     
     try {
         
-
+        console.log( 'to there and back again' )
         
     } catch (error) {
         console.log( error.message )

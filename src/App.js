@@ -21,7 +21,7 @@ const App = () => {
     const state = useSelector((state) => state)
     //const [currentId, setCurrentId] = useState(0)
     
-    const canAuthorize = user ? <Auth /> : <Navigate replace to='/movies' />
+    const canAuthorize = !user ? <Auth /> : <Navigate replace to='/movies' />
 
     const [searchDrawer, setSearchDrawer] = useState(true)
     const [ anchorEl, setAnchorEl ] = useState(null)

@@ -8,7 +8,7 @@ import {
   } from 'react-router-dom'
 import { 
     useDispatch, 
-    //useSelector 
+    useSelector 
   } from 'react-redux'
 
 import { 
@@ -19,16 +19,17 @@ import {
 import UserHeader from './UserHeader/UserHeader' 
 import WatchList from './WatchList/WatchList'
 import DrinkList from './DrinkList/DrinkList'
-//import { getUser } from "../../actions/auth";
 
 const UserDetails = () => {
- // const state = useSelector((state) => state)
+  //const state = useSelector((state) => state)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const location = useLocation()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-  //const { id } = useParams()
+  
+  const drinkList = user.result.drinkList
+  const watchList = user.result.watchList
 
   const logoutHandler = () => {
         dispatch({ type: LOGOUT })
@@ -38,7 +39,7 @@ const UserDetails = () => {
   useEffect(() => {
     //const token = user?.token
     setUser(JSON.parse(localStorage.getItem('profile')))
-    //console.log( user )
+   //console.log( drinkList )
   }, [ location ])  
 
   //* User.result. name, email, familyName, givenName, imageUrl
@@ -49,16 +50,17 @@ const UserDetails = () => {
           <Grid container spacing={2} style={{paddingLeft: '2rem', paddingTop: '2rem'}}>
             
             <UserHeader 
-              name = { user.result.name || user.name }
+              name = { user.result.name }
               avatar = { user.result.imageUrl }
             />
-            <WatchList 
-              list={ user.result.watchList }
+            {/* <WatchList 
+             // list={ user.result.watchList }
+              list={ watchList }
             />
             
             <DrinkList 
-              list={ user.result.drinkList }
-            />
+              list={ drinkList }
+            /> */}
             <Grid item >
               <Button onClick={ logoutHandler } variant='contained' color='secondary' >
                 Logout
