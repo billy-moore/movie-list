@@ -53,14 +53,14 @@ const UserDetails = () => {
               name = { user.result.name }
               avatar = { user.result.imageUrl }
             />
-            {/* <WatchList 
+            <WatchList 
              // list={ user.result.watchList }
               list={ watchList }
             />
             
             <DrinkList 
               list={ drinkList }
-            /> */}
+            /> 
             <Grid item >
               <Button onClick={ logoutHandler } variant='contained' color='secondary' >
                 Logout

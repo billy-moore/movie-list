@@ -8,11 +8,12 @@ const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
   //const state = useSelector((state) => state)
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
   const userId = user.result._id || user.result.googleId
+  const email = user.result.email
   const dispatch = useDispatch() 
   
   const addDrinkHandler = () => {
     console.log( user )
-    dispatch( addDrink( userId, id ))
+    dispatch( addDrink( userId, email, id ))
   }
 
   return (

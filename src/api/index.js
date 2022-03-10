@@ -52,6 +52,6 @@ export const fetchUser = ( id ) => axios.get(`/user/${id}`)
 //! implement update route, this is incorrect and needs fixed.
 
 //* Treat Drinks Like Posts
-export const addDrink = ( userId, newDrink ) => axios.patch(`user/${  userId }/drinkList`, newDrink )
+export const addDrink = ( userId, email, drinkId ) => axios.patch(`user/${  userId }/drinkList`, {email, drinkId} )
 
 //export const deleteDrink = ( user, drinkId ) => axios.delete(`user/${ user.resutl._id }/drinkList`,  drinkId )

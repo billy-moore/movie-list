@@ -51,7 +51,7 @@ const SideNav = ( props ) => {
                 </IconButton>
             <Divider />
                 {user?.result ? (
-                    <IconButton onClick={ (e) => goToUser( `${user?.result.id || user?.result.googleId}`) } size='small' >
+                    <IconButton onClick={ (e) => goToUser( `${user?.result._id || user?.result.googleId}`) } size='small' >
                     <Avatar alt={user?.result.name} src={user?.result.imageUrl} sx={{ width: 24, height: 24 }}>{user?.result.name.charAt(0)}</Avatar>
                 </IconButton>
                 ) : 
