@@ -17,9 +17,9 @@ export const signIn = ( formData ) => async (dispatch) => {
 
 export const signUp = ( formData ) => async ( dispatch ) => {
     //console.log( formData )
-    const { data } = await api.signUp( formData )
 
     try {
+        const { data } = await api.signUp( formData )
         
         dispatch( { type: AUTH, data })
 
@@ -30,9 +30,9 @@ export const signUp = ( formData ) => async ( dispatch ) => {
 
 export const getUser = ( userId, drinkId ) => async ( dispatch ) => {
 
-    const { data } = await api.fetchUser( userId, drinkId )
     
     try {
+        const { data } = await api.fetchUser( userId, drinkId )
 
         dispatch( { type: START_LOADING} )
         dispatch( { type: FETCH_USER, payload: data } )
@@ -51,8 +51,9 @@ export const addDrink = ( userId, email, drinkId ) => async ( dispatch ) => {
     
     try {
         
-       console.log( data )
-        
+        dispatch( { type: AUTH, data })
+        console.log( data )
+
     } catch (error) {
         console.log( error.message )
     }

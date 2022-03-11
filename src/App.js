@@ -31,9 +31,9 @@ const App = () => {
     //     setSearchDrawer(prev=> !prev)
     // }
 
-    useEffect(() => {
-        state.auth = user
-    }, [])
+    // useEffect(() => {
+    //     state.auth = user
+    // }, [])
 
     
     const handleClose=() => {

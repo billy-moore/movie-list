@@ -1,19 +1,19 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, ButtonBase, Grid, Paper, Typography } from '@material-ui/core'
 import { addDrink } from '../../../actions/auth'
 
 const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
-  //const state = useSelector((state) => state)
+  const state = useSelector((state) => state)
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-  const userId = user.result._id || user.result.googleId
+  const userId = user.result._id || user.result.googleId || user.result.id
   const email = user.result.email
   const dispatch = useDispatch() 
   
   const addDrinkHandler = () => {
-    console.log( user )
     dispatch( addDrink( userId, email, id ))
+    setUser(JSON.parse(localStorage.getItem('profile')))
   }
 
   return (
@@ -33,9 +33,9 @@ const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
                   <Button fullWidth variant='contained' color='secondary'>
                     Cheers!
                   </Button>
-                  <Button fullWidth variant='contained' color='primary' onClick={ addDrinkHandler }>
+                  { user.result.drinkList.includes( id ) ? null : <Button fullWidth variant='contained' color='primary' onClick={ addDrinkHandler }>
                     Add Drink
-                  </Button>
+                  </Button> }
                 </Fragment>
               }
           </Paper>

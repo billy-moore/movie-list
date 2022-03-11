@@ -8,11 +8,13 @@ import LocalBarIcon from '@material-ui/icons/LocalBar';
 import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import CopyrightIcon from '@material-ui/icons/Copyright';
+import { useSelector } from 'react-redux';
 
 const SideNav = ( props ) => {
     const navigate = useNavigate()
     const location = useLocation()
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+    const state = useSelector((state) => state)
+    const [user, setUser] = useState(state.auth)
 
     const goToHandler = ( e ) => {
         navigate(`/${e}`)
@@ -24,9 +26,7 @@ const SideNav = ( props ) => {
 
     useEffect(() => {
         const token = user?.token
-
         setUser(JSON.parse(localStorage.getItem('profile')))
-
     }, [ location ])
 
     return (

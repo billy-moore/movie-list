@@ -19,6 +19,7 @@ import {
 import UserHeader from './UserHeader/UserHeader' 
 import WatchList from './WatchList/WatchList'
 import DrinkList from './DrinkList/DrinkList'
+import { getUser } from "../../actions/auth";
 
 const UserDetails = () => {
   //const state = useSelector((state) => state)
@@ -39,7 +40,7 @@ const UserDetails = () => {
   useEffect(() => {
     //const token = user?.token
     setUser(JSON.parse(localStorage.getItem('profile')))
-   //console.log( drinkList )
+    //console.log( user )
   }, [ location ])  
 
   //* User.result. name, email, familyName, givenName, imageUrl
