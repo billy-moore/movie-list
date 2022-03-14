@@ -72,6 +72,11 @@ const UserDetails = () => {
                 Change Profile Image
               </Button>
             </Grid>
+            <Grid item >
+              <Button variant='contained' color='primary' >
+                Delete Account
+              </Button>
+            </Grid>
               
           </Grid>
         </Container>

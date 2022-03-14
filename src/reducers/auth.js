@@ -12,7 +12,7 @@ const authReducer = ( state = { authData: null }, action ) => {
             return { ...state, authData: null}
             
         case FETCH_USER:
-            //localStorage.setItem( 'profile', JSON.stringify( { ...action?.data } ) )
+            localStorage.setItem( 'profile', JSON.stringify( { ...action?.data } ) )
 
             return { ...state, authData: action?.data }
 
