@@ -19,7 +19,7 @@ import {
 import UserHeader from './UserHeader/UserHeader' 
 import WatchList from './WatchList/WatchList'
 import DrinkList from './DrinkList/DrinkList'
-import { getUser } from "../../actions/auth";
+
 
 const UserDetails = () => {
   //const state = useSelector((state) => state)

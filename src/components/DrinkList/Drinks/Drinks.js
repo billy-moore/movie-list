@@ -9,6 +9,7 @@ import { fetchDrinkDetails } from '../../../actions/cocktails'
 const Drinks = ({ list }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    
     const clickDrink = ( e, drink ) => {
         // drink variable is ID #
         e.preventDefault()

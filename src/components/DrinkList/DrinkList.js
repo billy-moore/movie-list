@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { AppBar, Button, Container, Grow, Typography, Grid, TextField } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation} from 'react-router-dom'
 
 //import Pagination from '../Pagination/Pagination'
 import { getDrinksList } from '../../actions/cocktails'
 
+import DrinkCard from './DrinkCard/DrinkCard'
 import useStyles from '../Home/styles'
 import Drinks from './Drinks/Drinks'
 import AlphaPaginate from '../Pagination/AlphaPagination/AlphaPaginate'
@@ -13,7 +14,7 @@ import AlphaPaginate from '../Pagination/AlphaPagination/AlphaPaginate'
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
 const DrinkList = () => {
-    // const location = useLocation()
+    const location = useLocation()
     // const query = useQuery()
     const navigate = useNavigate()
     const { list } = useSelector((state) => state.drinks)
@@ -38,7 +39,13 @@ const DrinkList = () => {
     }
 
     useEffect(() => {
+        if (location.pathname.slice(-2)[0] === '='){
+            setCurrentLetter(location.pathname.slice(- 1))
+        }
+        //console.log( location.pathname.splice(-2))
+        console.log( location.pathname.slice( -2 )[0] )
         dispatch( getDrinksList( currentLetter ))
+
     }, [dispatch, currentLetter ])
     
     return (

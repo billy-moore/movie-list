@@ -12,8 +12,12 @@ const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
   const dispatch = useDispatch() 
   
   const addDrinkHandler = () => {
+    
     dispatch( addDrink( userId, email, id ))
+
     setUser(JSON.parse(localStorage.getItem('profile')))
+
+    window.location.reload(true)
   }
 
   return (
@@ -36,6 +40,7 @@ const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
                   { user.result.drinkList.includes( id ) ? null : <Button fullWidth variant='contained' color='primary' onClick={ addDrinkHandler }>
                     Add Drink
                   </Button> }
+                  
                 </Fragment>
               }
           </Paper>
