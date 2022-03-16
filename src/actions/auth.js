@@ -35,6 +35,7 @@ export const getUser = ( userId, drinkId ) => async ( dispatch ) => {
         const { data } = await api.fetchUser( userId, drinkId )
 
         dispatch( { type: START_LOADING} )
+        
         dispatch( { type: FETCH_USER, payload: data } )
         
         dispatch( { type: END_LOADING } )
@@ -47,6 +48,8 @@ export const addDrink = ( userId, email, drinkId ) => async ( dispatch ) => {
 
     try {
         const { data } = await api.addDrink( userId, email, drinkId )
+
+        console.log( data )
         dispatch( { type: AUTH, data })
         
     } catch (error) {

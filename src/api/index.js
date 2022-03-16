@@ -54,4 +54,4 @@ export const fetchUser = ( id ) => axios.get(`/user/${id}`)
 //* Treat Drinks Like Posts
 export const addDrink = ( userId, email, drinkId ) => axios.patch(`/user/${ userId }/drinkList`, { email, drinkId } )
 
-//export const deleteDrink = ( user, drinkId ) => axios.delete(`user/${ user.resutl._id }/drinkList`,  drinkId )
+export const deleteDrink = ( drinkId ) => axios.delete(`/drinkList`,  drinkId )

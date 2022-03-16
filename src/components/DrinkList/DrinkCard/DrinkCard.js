@@ -14,10 +14,6 @@ const DrinkCard = ({ name, thumbnail, id, type, clicked }) => {
   const addDrinkHandler = () => {
     
     dispatch( addDrink( userId, email, id ))
-
-    setUser(JSON.parse(localStorage.getItem('profile')))
-
-    window.location.reload(true)
   }
 
   return (

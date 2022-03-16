@@ -42,8 +42,6 @@ const DrinkList = () => {
         if (location.pathname.slice(-2)[0] === '='){
             setCurrentLetter(location.pathname.slice(- 1))
         }
-        //console.log( location.pathname.splice(-2))
-        console.log( location.pathname.slice( -2 )[0] )
         dispatch( getDrinksList( currentLetter ))
 
     }, [dispatch, currentLetter ])
